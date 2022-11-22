@@ -1,14 +1,17 @@
 import { useState } from "react";
 import { StyleSheet, View, TextInput, Button } from "react-native";
 
-function TodoInput() {
+function TodoInput(props) {
   const [enteredTodoText, setEnteredTodoText] = useState("");
 
   function todoInputHandler(enteredText) {
     setEnteredTodoText(enteredText);
   }
 
-  function addTodoHandler() {}
+  function addTodoHandler() {
+    props.onAddTodo(enteredTodoText);
+    setEnteredTodoText("");
+  }
 
   return (
     <View style={styles.inputContainer}>

@@ -1,9 +1,9 @@
-import { StyleSheet, View, Text, Pressable } from "react-native";
+import { StyleSheet, View, Text } from "react-native";
 
-function TodoItem() {
+function TodoItem(props) {
   return (
     <View style={styles.todoItem}>
-      <Text style={styles.todoText}></Text>
+      <Text style={styles.todoText}>{props.text}</Text>
     </View>
   );
 }

@@ -6,7 +6,7 @@ import TodoItem from "./components/TodoItem";
 export default function App() {
   const [todos, setTodos] = useState([]);
 
-  function addTodoHandler() {
+  function addTodoHandler(enteredTodoText) {
     setTodos((currentTodos) => [
       ...currentTodos,
       { text: enteredTodoText, id: Math.random().toString() },
