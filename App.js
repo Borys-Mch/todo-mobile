@@ -23,6 +23,12 @@ export default function App() {
     endAddTodoHandler();
   }
 
+  function deleteTodoHandler(id) {
+    setTodos((currentTodos) => {
+      return currentTodos.filter((todo) => todo.id !== id);
+    });
+  }
+
   return (
     <View style={styles.appContainer}>
       <Button
@@ -39,7 +45,13 @@ export default function App() {
         <FlatList
           data={todos}
           renderItem={(itemData) => {
-            return <TodoItem text={itemData.item.text} id={itemData.item.id} />;
+            return (
+              <TodoItem
+                text={itemData.item.text}
+                id={itemData.item.id}
+                onDeleteItem={deleteTodoHandler}
+              />
+            );
           }}
           keyExtractor={(item, index) => {
             return item.id;
